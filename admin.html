@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/styleAdmin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="images_giao_dien/admin.png">
+    <title>Admin</title>
+</head>
+
+<body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <img id="logo" src="images_giao_dien/logo.png" alt="">
+            <span class="text">Admin</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="">
+                <a href="#">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Quản Lý Sản Phẩm</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-food-menu'></i>
+                    <span class="text">Quản Lý Danh Mục Sản Phẩm</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-shopping-bag-alt'></i>
+                    <span class="text">Quản Lý Đơn Hàng</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Quản Lý User</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-message-dots'></i>
+                    <span class="text">Quản Lý Bình Luận</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Thống Kê</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Cài đặt</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Thoát</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+    <section id="content">
+        <nav>
+            <a href="#" class="nav-link">Hello ...</a>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell'></i>
+                <span class="num">8</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="images_giao_dien/people.jpg">
+            </a>
+        </nav>
+        <!-- MAIN -->
+	<main>
+		<div class="head-title">
+			<div class="left">
+				<h1>Quản Lý Danh Mục</h1>
+				<ul class="breadcrumb">
+					<li>
+						<a href="#">Home</a>
+					</li>
+					<li><i class='bx bx-chevron-right'></i></li>
+					<li>
+						<a class="active" href="#">Quản Lý Danh Mục</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="table-data">
+			<div class="todo">
+                <div class="head">
+                    <h3>Danh sách danh mục</h3>
+                    <a href="#" class="btn btn-primary status pending btn-add-sp">Thêm danh mục</a>
+                </div>
+                <ul class="todo-list">
+                        <li class="completed">
+                            Apple
+                            <div>
+                                <a href="#" class="btn btn-primary status pending">Sửa</a>
+                                <a href="#" class="btn btn-primary status pending" onclick="return confirm('bạn chắc chắn xóa chứ!');">Xóa</a>
+                            </div>
+                        </li>
+                        <li class="completed">
+                            Xiaomi
+                            <div>
+                                <a href="#" class="btn btn-primary status pending">Sửa</a>
+                                <a href="#" class="btn btn-primary status pending" onclick="return confirm('bạn chắc chắn xóa chứ!');">Xóa</a>
+                            </div>
+                        </li>
+                        <li class="completed">
+                            Oppo
+                            <div>
+                                <a href="#" class="btn btn-primary status pending">Sửa</a>
+                                <a href="#" class="btn btn-primary status pending" onclick="return confirm('bạn chắc chắn xóa chứ!');">Xóa</a>
+                            </div>
+                        </li>
+                        <li class="completed">
+                            Samsung
+                            <div>
+                                <a href="#" class="btn btn-primary status pending">Sửa</a>
+                                <a href="#" class="btn btn-primary status pending" onclick="return confirm('bạn chắc chắn xóa chứ!');">Xóa</a>
+                            </div>
+                        </li>
+                        <li class="completed">
+                            Nokia
+                            <div>
+                                <a href="#" class="btn btn-primary status pending">Sửa</a>
+                                <a href="#" class="btn btn-primary status pending" onclick="return confirm('bạn chắc chắn xóa chứ!');">Xóa</a>
+                            </div>
+                        </li>
+                </ul>
+            </div>
+
+		</div>
+	</main>
+	<!-- MAIN -->
+        <script>
+            // const allSideMenu = document.querySelectorAll('#sidebar .side-menu .top li a');
+
+            // allSideMenu.forEach(item => {
+            // 	const li = item.parentElement;
+
+            // 	item.addEventListener('click', function() {
+            // 		allSideMenu.forEach(i => {
+            // 			i.parentElement.classList.remove('active');
+            // 		})
+            // 		li.classList.add('active');
+            // 	})
+            // });
+
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

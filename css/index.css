@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800&display=swap');
+
+html{
+    font-family: 'Mulish', sans-serif;
+}   
+
+body {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    width: 100%;
+    background-color: red;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 120px;
+}
+
+.header form input {
+    border: none;
+    background: #fff;
+    padding: 7px;
+    outline: none;
+    border-radius: 12px;
+    height:17px;
+    width:480px;
+  }
+
+.header .header--logo {
+    margin-top: 10px;
+    margin-left: 10px;
+    width:100px;
+}
+
+.header input {
+    margin-top: 30px;
+    width: 400px;
+    height: 30px;
+}
+
+.header p {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+}
+.header button a{
+    text-decoration: none;
+    color: black;
+    background-color: aqua;
+}
+
+.nav--menu{
+    background-color: black;
+    width: 100%;
+    line-height: 40px;
+}
+
+.nav--menu ul li{
+    display: inline;
+    padding: 10px 40px;
+}
+
+.nav--menu ul li>a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav--menu ul li:hover {
+    background-color: rgb(43, 43, 43);
+}
+
+.banner {
+
+}
+
+@keyframes my { 
+    0% { color: #F8CD0A; } 
+    50% { color: #fff; } 
+    100% { color: #F8CD0A; }
+}
+
+.text-animation{ 
+    font-size:24px; 
+    font-weight:bold; 
+    -webkit-animation: my 700ms infinite; 
+    -moz-animation: my 700ms infinite; 
+    -o-animation: my 700ms infinite; 
+    animation: my 700ms infinite; 
+}
+
+.chuchay a{
+    text-decoration: none;
+    margin-top: 20px;
+    font-size:40px ;
+    color:darkred;
+    background-color: #F8CD0A;
+}
+
+.content {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.the_h1{
+    width: calc(100% - 40px);
+    height: 40px;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;margin-bottom: 20px;
+}
+
+.content1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.content1--item {
+    /* background-color: aquamarine; */
+    margin-bottom: 20px;
+}
+
+.content1--item:hover{
+    cursor: pointer;
+    border: 2px solid rgb(247, 247, 247);
+}
+
+.content1--item:hover .item_img{
+    transform:scale(1.1)
+}
+
+.content1--item .item_img{
+    height: 250px;
+    padding-top: 20px;
+}
+
+.content1--item img {
+    width: 80%;
+    padding: auto;
+}
+
+.content1--item .desc .item_tensp{
+    font-weight: bold;
+    height: 50px;
+    line-height: 25px;
+    padding: 3px;
+}
+
+.content1--item .desc strong{
+    color: #d0021c;
+    font-size: 20px;
+    margin-bottom: 8px;
+    padding: 5px;
+}
+.content1--item .desc del{
+    font-size: 15px;
+    color: rgb(141, 141, 141);
+    margin-bottom: 8px;
+    padding: 5px;
+}
+
+.content1--item button{
+    width: 95%;
+    background-color:goldenrod;
+    border:none;
+    height:40px;
+    margin-top: 15px;
+    color:aliceblue;
+    font-weight: bold;
+    
+}
+
+.content1--item button:hover{
+    border: 3px solid rgb(185, 185, 185);
+    cursor: pointer;
+}
+
+.banner--mid img{
+    width: 100%;
+}
+
+.banner--mid img:hover{
+    cursor: pointer;
+}
+
+footer {
+    background-color: gainsboro;
+    width: 100%;
+    margin-top: 20px;
+}
+
+footer .the_h3{
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer--content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+}
+
+.footer--content-box1{
+    font-size: 15px;
+}
+
+.footer--content-box2{
+    text-align: center;
+    font-size: 15px;
+}
+
+.footer--content-box3{
+    font-size: 15px;
+}
+
+/*  */

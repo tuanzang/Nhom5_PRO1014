@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="../Controller/index_admin.php?request=list_categories">
                     <i class='bx bxs-food-menu'></i>
                     <span class="text">Quản Lý Danh Mục Sản Phẩm</span>
                 </a>

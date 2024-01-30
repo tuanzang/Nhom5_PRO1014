@@ -7,7 +7,7 @@
         </a>
         <ul class="side-menu top">
             <li class="">
-                <a href="#">
+                <a href="../Controller/index_admin.php?request=list_product">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Quản Lý Sản Phẩm</span>
                 </a>

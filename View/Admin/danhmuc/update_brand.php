@@ -17,7 +17,7 @@
                     <input type="hidden" class="form-control"  name="id_brand" value="<?=$id_dm?>" >
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Tên danh mục </label>
-                    <input type="text" class="form-control" id="recipient-name" name="brand_name" value="<?=$ten_dm?>">
+                    <input type="text" class="form-control" id="recipient-name" name="name_brand" value="<?=$ten_dm?>">
                 </div>
             </div>
             <div class="modal-footer">

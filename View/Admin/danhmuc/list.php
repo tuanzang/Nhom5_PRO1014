@@ -25,8 +25,8 @@
                         <li class="completed">
                                 <?=$ten_dm?>
                                 <div>
-                                    <a href="../Controller/index_admin.php?request=editBrand&id_dm=<?=$id_dm?>" class="btn btn-primary status pending">Sửa</a>
-                                    <a href="../Controller/index_admin.php?request=deleteBrand&id_dm=<?=$id_dm?>" class="btn btn-primary status pending" onclick="return confirm('bạn chắc chắn xóa chứ!');">Xóa</a>
+                                    <a href="../Controller/index_admin.php?request=editBrand&id=<?=$id_dm?>" class="btn btn-primary status pending">Sửa</a>
+                                    <a href="../Controller/index_admin.php?request=deleteBrand&id=<?=$id_dm?>" class="btn btn-primary status pending" onclick="return confirm('bạn chắc chắn xóa chứ!');">Xóa</a>
                                 </div>
                             </li>
                 

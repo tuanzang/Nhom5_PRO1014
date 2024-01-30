@@ -1,7 +1,7 @@
 
   <div class="container-fluid">
         <div>
-            <h3 class="alert alert-success">Chi tiết đơn hàng <?= $code ?></h3>
+            <h3 class="alert alert-success">Chi tiết đơn hàng</h3>
         </div>
         <div class="card bg-light text-dark mb-4 mt-3">
             <div class="card-body">

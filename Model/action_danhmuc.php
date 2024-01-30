@@ -19,4 +19,9 @@ function Add_Brand_Name($name){
         $sql ="UPDATE `danh_muc` SET `ten_dm`='$ten_dm' WHERE `id_dm` =".$id_dm;
         pdo_query($sql);
     }
+
+    function Delete_Category($id_dm){
+        $sql ="DELETE FROM `danh_muc` WHERE `id_dm` = ".$id_dm;
+        pdo_query($sql);
+    }
 ?>

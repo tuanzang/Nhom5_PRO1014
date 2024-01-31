@@ -67,7 +67,7 @@
                     $name_product = $_POST['pro_name'];
                     $price_product = $_POST['price'];
                     $file_name = $_FILES['img']['name'];
-                    echo $file_name;
+                   
                     Upload_Images($file_name);
                     Add_Data_Product($name_product,$id_dm,$file_name,$price_product);
                 }

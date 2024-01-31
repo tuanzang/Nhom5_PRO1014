@@ -51,7 +51,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="logout">
+                <a href="../Controller/index_user.php" class="logout">
                     <i class='bx bxs-log-out-circle'></i>
                     <span class="text">Thoát</span>
                 </a>

@@ -37,6 +37,15 @@
         }
        
     }
+    function Load_Recommned_Product(){
+        $sql = "SELECT * FROM `san_pham` ORDER BY ngay_tao DESC LIMIT 3";
+        return pdo_query($sql);
+    }
+
+    function Load_Recommend_Today(){
+        $sql = "SELECT * FROM `san_pham` ORDER BY ngay_tao DESC LIMIT 8";
+        return pdo_query($sql);
+    }
 
         /**
  *

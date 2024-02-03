@@ -28,38 +28,7 @@
             </div>
         </div>
 
-        <!-- <div class="table-content table-responsive mt-3 mb-3">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th class="jb-product-thumbnail">Hình ảnh</th>
-                        <th class="cart-product-name">Sản phẩm</th>
-                        <th class="jb-product-price">Đơn giá</th>
-                        <th class="jb-product-quantity">Số lượng</th>
-                        <th class="jb-product-subtotal">Thành tiền</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   
-                        <tr>
-                            <td class="jb-product-thumbnail"><img src="../public/img/product/" alt="Ultraphone Product" width="80px"></img></td>
-                            <td class="jb-product-name">
-                               
-                            </td>
-                            <td class="jb-product-price"><span class="amount">
-                                 
-                                </span></td>
-                            <td class="quantity">
-                               
-                            </td>
-                            <td class="product-subtotal"><span class="amount">
-                                  
-                                </span></td>
-                        </tr>
-                   
-                </tbody>
-            </table>
-        </div> -->
+        
         <div class="btn-function">
             <a href="index.php?action=donhang" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Quay lại danh sách</a>
         </div>

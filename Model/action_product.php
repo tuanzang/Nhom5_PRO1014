@@ -5,8 +5,8 @@
         move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
     }
 
-    function Add_Data_Product ($name_product,$id_dm, $img, $price_product){
-        $sql="INSERT INTO `san_pham`( `ten_sp`, `id_dm`, `img`, `gia`) VALUES ('$name_product','$id_dm','$img','$price_product')";
+    function Add_Data_Product ($name_product,$id_dm, $img, $price_product,$des,$detail,$quantity){
+        $sql="INSERT INTO `san_pham`( `ten_sp`, `id_dm`, `img`, `gia`,`mo_ta`,`chi_tiet`,`so_luong`) VALUES ('$name_product','$id_dm','$img','$price_product','$des','$detail','$quantity')";
         pdo_query($sql);
     }
     
@@ -23,18 +23,24 @@
     }
 
     function Load_One_Data_Product($id_sp){
-        $sql ="SELECT * FROM san_pham WHERE `id_sp` = ".$id_sp;
+        $sql ="SELECT sp.`id_sp`, sp.`ten_sp`, sp.`id_dm`, sp.`img`, sp.`gia`, sp.`ngay_tao`, sp.`mo_ta`, sp.`chi_tiet`, sp.`so_luong`, dm.`ten_dm` FROM `san_pham` sp JOIN `danh_muc` dm ON sp.`id_dm` = dm.`id_dm` WHERE sp.`id_sp` = '$id_sp'";
         return pdo_query_one($sql);
     }
 
-    function Update_Product($id_sp,$name_product,$id_dm, $img, $price_product){
+
+    function Update_Product($id_sp,$name_product,$id_dm, $img, $price_product,$des,$detail,$quantity){
         if($img !=''){
-             $sql="UPDATE `san_pham` SET `ten_sp`='$name_product',`id_dm`='$id_dm',`img`='$img',`gia`='$price_product' WHERE `id_sp`=".$id_sp;
+             $sql="UPDATE `san_pham` SET `ten_sp`='$name_product',`id_dm`='$id_dm',`img`='$img',`gia`='$price_product', `mo_ta` = '$des',`chi_tiet` ='$detail',`so_luong` = '$quantity' WHERE `id_sp`='$id_sp'";
              pdo_query($sql);
         }else{
-            $sql="UPDATE `san_pham` SET `ten_sp`='$name_product',`id_dm`='$id_dm',`gia`='$price_product' WHERE `id_sp`=".$id_sp;
+            $sql="UPDATE `san_pham` SET `ten_sp`='$name_product',`id_dm`='$id_dm',`gia`='$price_product', `mo_ta` = '$des',`chi_tiet` ='$detail',`so_luong` = '$quantity'  WHERE `id_sp`=".$id_sp;
             pdo_query($sql);
         }
+    function Load_Product_Same_Category($id_dm){
+        $sql ="SELECT san_pham.id_sp, san_pham.ten_sp, san_pham.gia, san_pham.img, danh_muc.ten_dm, san_pham.ngay_tao
+        FROM san_pham 
+        JOIN danh_muc ON san_pham.id_dm = danh_muc.id_dm;";
+    }
        
     }
     function Load_Recommned_Product(){

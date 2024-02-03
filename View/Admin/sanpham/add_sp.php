@@ -38,7 +38,7 @@
                     </select>
 
                 </div>
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Mô tả</label>
                     <input type="text" class="form-control" id="recipient-name" name="des" required>
                 </div>
@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Số lượng</label>
                     <input type="text" class="form-control" id="recipient-name" name="quantity" required>
-                </div> -->
+                </div>
 
             </div>
             <div class="modal-footer">

@@ -67,9 +67,12 @@
                     $name_product = $_POST['pro_name'];
                     $price_product = $_POST['price'];
                     $file_name = $_FILES['img']['name'];
+                    $des = $_POST['des'];
+                    $detail = $_POST['detail'];
+                    $quantity = $_POST['quantity'];
                    
                     Upload_Images($file_name);
-                    Add_Data_Product($name_product,$id_dm,$file_name,$price_product);
+                    Add_Data_Product($name_product,$id_dm,$file_name,$price_product,$des,$detail,$quantity);
                 }
                 $list_data_categories = Load_All_Data_Categories();
                 include '../View/Admin/sanpham/add_sp.php';
@@ -101,8 +104,12 @@
                     $name_product = $_POST['pro_name'];
                     $price_product = $_POST['price'];
                     $file_name = $_FILES['img']['name'];
+                    $des = $_POST['des'];
+                    $detail = $_POST['detail'];
+                    $quantity = $_POST['quantity'];
+
                     Upload_Images($file_name);
-                    Update_Product($id_product, $name_product,$id_dm, $file_name,$price_product);
+                    Update_Product($id_product, $name_product,$id_dm, $file_name,$price_product,$des,$detail,$quantity);
                 }
                 $list_data_product = Load_All_Data_Products();
                 include '../View/Admin/sanpham/list_sp.php';

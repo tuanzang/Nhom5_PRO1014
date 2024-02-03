@@ -57,7 +57,7 @@
                         <div class="product-img">
                             <img class="img-fluid w-100" src="../img/<?=$img?>" alt="" />
                             <div class="p_icon">
-                                <a href="index.php?action=chitietsp&id_product=">
+                                <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
                                     <i class="ti-eye" title="Chi tiết sản phẩm"></i>
                                 </a>
                                 <a href="index.php?action=addgiohang&id_pro=">
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <div class="product-btm">
-                            <a href="index.php?action=chitietsp&id_product=" class="d-block">
+                            <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>" class="d-block">
                                 <h4 title="Chi tiết sản phẩm"><span class="mr-4"><?=$ten_sp?></span></h4>
                             </a>
                             <div class="mt-3">
@@ -100,7 +100,7 @@
                         <div class="product-img">
                             <img class="img-fluid w-100" src="../img/<?=$img?>" alt="" />
                             <div class="p_icon">
-                                <a href="index.php?action=chitietsp&id_product=">
+                                <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
                                     <i class="ti-eye" title="Chi tiết sản phẩm"></i>
                                 </a>
                                 <a href="index.php?action=addgiohang&id_pro=">
@@ -109,7 +109,7 @@
                             </div>
                         </div>
                         <div class="product-btm">
-                            <a href="index.php?action=chitietsp&id_product=" class="d-block">
+                            <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>" class="d-block">
                                 <h4><?=$ten_sp?></h4>
                             </a>
                             <div class="mt-3">

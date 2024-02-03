@@ -6,13 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" href="../images_giao_dien/logo.png" type="image/png" />
     <title>MDPsmartphone</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/themify-icons.css">
     <link rel="stylesheet" href="../css/flaticon.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
+    <style>
+  .carousel-inner img {
+    max-height: 600px; /* Điều chỉnh giá trị max-height theo mong muốn của bạn */
+    width: 100%;
+    height: auto;
+  }
+  .feature_product_area {
+        margin-top: 20px;
+    }
+
+</style>
 </head>
 
 <body>
@@ -29,13 +40,14 @@
                     <div class="col-lg-7">
                         <div class="float-right">
                             <div class="right_side">
-                              
-                                    <li><a href="../admin/">
-                                            
-                                        </a>
+                            <?php if(isset($_SESSION['user']) && $_SESSION['user']['id_vaitro'] === 1){
+                                echo '
+                                <li><a href="../../../Duan1_Project/Controller/index_admin.php">Quản trị</a></li>   
+                                ';
+                            } ?>
                                     </li>
                                     <li><a href="index.php?action=history">Lịch sử mua hàng</a></li>
-                                    <li><a href="index.php?action=logout">Đăng xuất</a></li>
+                                    <li><a href="../../../Duan1_Project/Controller/index_user.php?request=log-out">Đăng xuất</a></li>
                                 
                             </div>
                         </div>
@@ -58,13 +70,13 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
                         <div class="row w-100 mr-0">
-                            <div class="col-lg-7 pr-0">
+                            <div class="col-lg-5 pr-0">
                                 <ul class="nav navbar-nav center_nav pull-right">
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="index.php">Trang chủ</a>
+                                        <a class="nav-link" href="../../../Duan1_Project/Controller/index_user.php">Trang chủ</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="index.php?action=sanpham">Sản Phẩm</a>
+                                        <a class="nav-link" href="../../../Duan1_Project/Controller/index_user.php?request=list-product">Sản Phẩm</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">giới thiệu</a>
@@ -75,7 +87,7 @@
                                 </ul>
                             </div>
 
-                            <div class="col-lg-5 pr-0">
+                            <div class="col-lg-7 pr-0">
                                 <ul class="nav navbar-nav navbar-right right_nav pull-right">
                                     <form class="form-inline" action="index.php?action=sanpham" method="POST">
                                         <div class="input-group">
@@ -101,14 +113,21 @@
 
                                     <li class="nav-item">
 
-                                      
-                                      
-                                            <a href="../Controller/index_user.php?request=login" class="icons">
+                                        <?php
+                                        if (isset($_SESSION['user'])) {
+                                        ?>
+
+                                            <span>Xin chào,<a data-toggle="modal" data-target="#sua-user" class="icons " style="cursor: pointer;"><?= $_SESSION['user']['ho_ten'] ?></a> </span>                                           
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <a href="../../../Duan1_Project/View/User/login.php" class="icons">
                                                 <i class="ti-user" aria-hidden="true"></i>
                                             </a>
-                                      
+                                        <?php
+                                        }
+                                        ?>
                                     </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -118,8 +137,8 @@
     </header>
     <!--================Header Menu Area =================-->
     <!--MODAL sửa user BOOTSTRAP-->
-    <div class="modal fade" id="sua-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <form action="index.php?action=myacc" method="POST" enctype="multipart/form-data">
+    <div class="modal fade  " id="sua-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <form action="../../../Duan1_Project/Controller/index_user.php?request=update-acc" method="POST" enctype="multipart/form-data">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -136,29 +155,23 @@
                         </div>
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Tên đăng nhập:</label>
-                            <input type="text" class="form-control" id="recipient-name" value="" name="user_name">
+                            <input type="text" disabled class="form-control" id="recipient-name" value="<?=$_SESSION['user']['ho_ten']?>" name="user_name">
                         </div>
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Email:</label>
-                            <input type="text" class="form-control" id="recipient-name" value="" name="email">
+                            <input type="text" disabled class="form-control" id="recipient-name" value="<?=$_SESSION['user']['gmail']?>" name="email">
                         </div>
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Số điện thoại:</label>
-                            <input type="text" class="form-control" id="recipient-name" value="" name="phone">
+                            <input type="text" disabled class="form-control" id="recipient-name" value="<?=$_SESSION['user']['sdt']?>" name="phone">
                         </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Địa chỉ:</label>
-                            <input type="text" class="form-control" id="recipient-name" value="" name="add">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Hình ảnh:</label>
-                            <input type="file" class="form-control" id="recipient-name" value="" name=image>
-                        </div>
+                       
+                       
         </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" name="btn_update_user" class="btn btn-primary">Lưu lại</button>
+        
     </div>
     </div>
     </div>

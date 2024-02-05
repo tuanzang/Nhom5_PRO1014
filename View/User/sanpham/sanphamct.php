@@ -12,12 +12,7 @@
     </div>
 </section>
 <!--================End Home Banner Area =================-->
-<?php
-if (is_array( $list_one_data_product)) {
-   
-    extract( $list_one_data_product);
-}
-?>
+
 <!--================Single Product Area =================-->
 <div class="product_image_area mb-40">
     <div class="container">
@@ -121,14 +116,14 @@ if (is_array( $list_one_data_product)) {
         </div>
     </div>
     <div class="row ">
-        
-        
+           <h2 style="margin-bottom: 15px">Sản phẩm cùng hãng</h2>
+            <?php foreach($list_same_category as $value) : extract($value); ?>
             <div class="col-lg-3 col-md-6">
                 <div class="single-product">
                     <div class="product-img">
-                        <img class="img-fluid w-100" src="../img/product/" alt="" />
+                        <img class="img-fluid w-100" src="../../../../Duan1_Project/img/<?=$img?>" alt="" />
                         <div class="p_icon">
-                            <a href="index.php?action=chitietsp&id_product=">
+                            <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
                                 <i class="ti-eye" title="Chi tiết sản phẩm"></i>
                             </a>
                             <a href="index.php?action=addgiohang&id_pro=">
@@ -137,16 +132,16 @@ if (is_array( $list_one_data_product)) {
                         </div>
                     </div>
                     <div class="product-btm">
-                        <a href="index.php?action=chitietsp&id_product=" class="d-block">
-                            <h4></h4>
+                        <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>" class="d-block">
+                            <h4><?=$ten_sp?></h4>
                         </a>
                         <div class="mt-3">
-                            <span class="mr-4"> đ</span>
-                            <del>$35.00</del>
+                            <span class="mr-4"> <?php echo currency_format($gia, ' VND'); ?></span>
+                            <del>20.000.000 VND</del>
                         </div>
                     </div>
                 </div>
             </div>
-       
+       <?php endforeach ?>
     </div>
 </div>

@@ -12,13 +12,13 @@
                                         extract($brand);
                                 ?>
                                 <li>
-                                    <a href="index.php?action=sanpham&id_brand=<?=$id_dm?>"><?=$ten_dm?></a>
+                                    <a href="../../../../Duan1_Project/Controller/index_user.php?request=filter&id_brand=<?=$id_dm?>"><?=$ten_dm?></a>
                                 </li>
                                 <?php
                                     }}
                                 ?>
                                 <li>
-                                    <form class="form-inline" action="index.php?action=sanpham" method="POST">
+                                    <form class="form-inline" action="../../../Duan1_Project/Controller/index_user.php?request=filter" method="POST">
                                         <div class="input-group">
                                             <input type="text" class="form-control form-control-sm" placeholder="Search" name="key-search">
                                             <div class="input-group-append">

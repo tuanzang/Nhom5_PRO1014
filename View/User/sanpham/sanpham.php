@@ -5,7 +5,7 @@
             <div class="banner_content d-md-flex justify-content-between align-items-center">
                 <div class="mb-3 mb-md-0">
                     <h2>Tất cả sản phẩm</h2>
-                    <p>Những sản phẩm trong shop đều ở đây hết đó ...</p>
+                    <p></p>
                 </div>
             </div>
         </div>
@@ -22,9 +22,15 @@
                 <div class=" product_top_barlatest_product_inner">
                     <div class="row">
                             <?php
-                                if(is_array($list_data_product)){
+                                if(empty($list_data_product)){
+                                    echo '<div class="text-center" role="alert">
+                                           <p class="alert alert-primary h3">Cửa hàng của chúng tôi không có sản phẩm này!</p>
+                                  
+                                           </div>';
+                                 } else{
                                     foreach($list_data_product as $product){
                                         extract($product);
+ 
                             ?>
                             <div class="col-lg-4 col-md-6">
                                 <div class="single-product">
@@ -34,7 +40,7 @@
                                             <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
                                                 <i class="ti-eye" title="Chi tiết sản phẩm"></i>
                                             </a>
-                                            <a href="index.php?action=addgiohang&id_pro=<?=$product_id?>">
+                                            <a href="../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_product?>&&price<?=$gia?>">
                                                 <i class="ti-shopping-cart" title="Thêm vào giỏ hàng"></i>
                                             </a>
                                         </div>

@@ -60,7 +60,7 @@
                                 <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
                                     <i class="ti-eye" title="Chi tiết sản phẩm"></i>
                                 </a>
-                                <a href="index.php?action=addgiohang&id_pro=">
+                                <a href="../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_product?>&&price<?=$gia?>">
                                     <i class="ti-shopping-cart" title="Thêm vào giỏ hàng"></i>
                                 </a>
                             </div>
@@ -103,7 +103,7 @@
                                 <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
                                     <i class="ti-eye" title="Chi tiết sản phẩm"></i>
                                 </a>
-                                <a href="index.php?action=addgiohang&id_pro=">
+                                <a href="../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_product?>&&price<?=$gia?>">
                                     <i class="ti-shopping-cart" title="Thêm vào giỏ hàng"></i>
                                 </a>
                             </div>
@@ -113,7 +113,7 @@
                                 <h4><?=$ten_sp?></h4>
                             </a>
                             <div class="mt-3">
-                                <span class="mr-4"><?=$gia?></span>
+                                <span class="mr-4"><?php echo currency_format($gia, ' VND'); ?></span>
                                 <del>16.000.000đ</del>
                             </div>
                         </div>

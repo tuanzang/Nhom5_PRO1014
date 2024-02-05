@@ -40,14 +40,17 @@
                     <div class="col-lg-7">
                         <div class="float-right">
                             <div class="right_side">
-                            <?php if(isset($_SESSION['user']) && $_SESSION['user']['id_vaitro'] === 1){
+                            <?php if(isset($_SESSION['user'])){
                                 echo '
-                                <li><a href="../../../Duan1_Project/Controller/index_admin.php">Quản trị</a></li>   
+                                <li><a href="index.php?action=history">Lịch sử mua hàng</a></li>
+                                <li><a href="../../../Duan1_Project/Controller/index_user.php?request=log-out">Đăng xuất</a></li> 
                                 ';
+
+                            } if (isset($_SESSION['user']['id_vaitro']) === 1)  {
+                                echo '<li><a href="../../../Duan1_Project/Controller/index_admin.php">Quản trị</a></li>';
                             } ?>
-                                    </li>
-                                    <li><a href="index.php?action=history">Lịch sử mua hàng</a></li>
-                                    <li><a href="../../../Duan1_Project/Controller/index_user.php?request=log-out">Đăng xuất</a></li>
+        
+                                    
                                 
                             </div>
                         </div>
@@ -60,7 +63,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light w-100">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <a class="navbar-brand logo_h" href="index.php">
-                        <img src="../images_giao_dien/logo.png" style="height: 70px; width: 70px;" alt="" />
+                        <img src="https://laptop360.net/wp-content/uploads/2019/04/logo-home-laptop-360.png " style="height: 70px; width: 100px;" alt="" />
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-bar"></span>
@@ -89,7 +92,8 @@
 
                             <div class="col-lg-7 pr-0">
                                 <ul class="nav navbar-nav navbar-right right_nav pull-right">
-                                    <form class="form-inline" action="index.php?action=sanpham" method="POST">
+
+                                    <form class="form-inline" action="../../../Duan1_Project/Controller/index_user.php?request=filter" method="POST">
                                         <div class="input-group">
                                             <input type="text" class="form-control form-control-sm" placeholder="Search" name="key-search">
                                             <div class="input-group-append">

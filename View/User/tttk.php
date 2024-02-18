@@ -21,15 +21,15 @@
             <form action="" method="POST">
                 <div class="input-form">
                     <span>Tên Tài Khoản</span>
-                    <input type="text" name="user_name">
+                    <input type="text" disabled name="user_name">
                 </div>
                 <div class="input-form">
                     <span>Tên Người Dùng</span>
-                    <input type="text" name="user_name">
+                    <input type="text" disabled name="user_name">
                 </div>
                 <div class="input-form">
                     <span>Địa Chỉ</span>
-                    <input type="text" name="user_name">
+                    <input type="text" disabled name="user_name">
                 </div>
 
                 <div class="input-form">

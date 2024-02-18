@@ -37,10 +37,10 @@
                                     <div class="product-img">
                                         <img class="card-img" src="../../../../Duan1_Project/img/<?=$img?>" alt="" />
                                         <div class="p_icon">
-                                            <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
+                                            <a href="../../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
                                                 <i class="ti-eye" title="Chi tiết sản phẩm"></i>
                                             </a>
-                                            <a href="../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_product?>&&price<?=$gia?>">
+                                            <a href="../../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_sp?>&&price=<?=$gia?>">
                                                 <i class="ti-shopping-cart" title="Thêm vào giỏ hàng"></i>
                                             </a>
                                         </div>

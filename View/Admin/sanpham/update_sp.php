@@ -1,5 +1,5 @@
 
-<form method="POST" enctype="multipart/form-data" action="../Controller/index_admin.php?request=update-product">
+<form method="POST" enctype="multipart/form-data" action="../../../../Duan1_Project/Controller/index_admin.php?request=update-product">
     <div class="" role="document">
         <div class="">
             <?php if(is_array($list_one_data_product)) extract($list_one_data_product);
@@ -31,7 +31,7 @@
                     </select>
 
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Mô tả</label>
                     <input type="text" class="form-control" id="recipient-name" name="des" value="">
                 </div>
@@ -42,7 +42,7 @@
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Số lượng</label>
                     <input type="text" class="form-control" id="recipient-name" name="quantity"value="">
-                </div>
+                </div> -->
 
             </div>
             <div class="modal-footer">

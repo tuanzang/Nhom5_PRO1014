@@ -2,7 +2,7 @@
 
 
 
-<form method="POST" enctype="multipart/form-data" action="../Controller/index_admin.php?request=create-product">
+<form method="POST" enctype="multipart/form-data" action="../../../../Duan1_Project/Controller/index_admin.php?request=create-product">
     <div class="" role="document">
         <div class="">
             <div class="modal-header">

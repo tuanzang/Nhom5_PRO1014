@@ -19,7 +19,7 @@
          <div class="order">
              <div class="head">
                  <h3>Danh sách sản phẩm</h3>
-                 <a href="../Controller/index_admin.php?request=create-product" class="btn btn-primary btn-add-sp">Thêm Sản Phẩm</a>
+                 <a href="../../../../Duan1_Project/Controller/index_admin.php?request=create-product" class="btn btn-primary btn-add-sp">Thêm Sản Phẩm</a>
 
              </div>
              <table>
@@ -43,8 +43,8 @@
                              <td><img src='../img/<?=$img?>'></td>
                              <td><?php echo currency_format($gia, ' VND'); ?></td>
                              <td><?=$ngay_tao?></td>
-                             <td><a href="../Controller/index_admin.php?request=edit-product&id=<?=$id_sp?>" class="btn btn-primary status pending">Sửa</a>
-                                 <a href="../Controller/index_admin.php?request=delete-product&id=<?=$id_sp?>" onclick="return confirm('bạn chắc chắn xóa chứ!');" class="btn btn-primary status process">Xóa</a>
+                             <td><a href="../../../../Duan1_Project/Controller/index_admin.php?request=edit-product&id=<?=$id_sp?>" class="btn btn-primary status pending">Sửa</a>
+                                 <a href="../../../../Duan1_Project/Controller/index_admin.php?request=delete-product&id=<?=$id_sp?>" onclick="return confirm('bạn chắc chắn xóa chứ!');" class="btn btn-primary status process">Xóa</a>
                              </td>
                          </tr>
                 <?php endforeach ?>

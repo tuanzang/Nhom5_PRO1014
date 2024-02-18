@@ -2,18 +2,18 @@
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="#" class="brand">
-            <img id="logo" src="images_giao_dien/logo.png" alt="">
+            <img id="logo" src="../../../Duan1_Project/img/anh.jpg" alt="">
             <span class="text">Admin</span>
         </a>
         <ul class="side-menu top">
             <li class="">
-                <a href="../Controller/index_admin.php?request=list_product">
+                <a href="../../../../Duan1_Project/Controller/index_admin.php?request=list_product">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Quản Lý Sản Phẩm</span>
                 </a>
             </li>
             <li>
-                <a href="../Controller/index_admin.php?request=list_categories">
+                <a href="../../../../Duan1_Project/Controller/index_admin.php?request=list_categories">
                     <i class='bx bxs-food-menu'></i>
                     <span class="text">Quản Lý Danh Mục Sản Phẩm</span>
                 </a>
@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="../../../../Duan1_Project/Controller/index_admin.php?request=list-user">
                     <i class='bx bxs-group'></i>
                     <span class="text">Quản Lý User</span>
                 </a>

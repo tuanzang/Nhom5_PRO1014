@@ -19,7 +19,7 @@
         <div class="noi-dung">
             <div class="form">
                 <h2>Trang Đăng Ký</h2>
-                <form action="../../Controller/index_user.php?request=register" method="POST">
+                <form action="../../../../Duan1_Project/Controller/index_user.php?request=register" method="POST">
                     <div class="input-form">
                         <span>Tên Người Dùng</span>
                         <input type="text" name="user_name" required>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="input-form">
                         <span>Email</span>
-                        <input type="email" name="email" required>
+                        <input type="text" name="email" required>
                     </div>
                     <div class="input-form">
                         <span>Mật Khẩu</span>

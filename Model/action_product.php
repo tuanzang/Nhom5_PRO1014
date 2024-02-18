@@ -5,8 +5,8 @@
         move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
     }
 
-    function Add_Data_Product ($name_product,$id_dm, $img, $price_product,$des,$detail,$quantity){
-        $sql="INSERT INTO `san_pham`( `ten_sp`, `id_dm`, `img`, `gia`,`mo_ta`,`chi_tiet`,`so_luong`) VALUES ('$name_product','$id_dm','$img','$price_product','$des','$detail','$quantity')";
+    function Add_Data_Product ($name_product,$id_dm, $img, $price_product){
+        $sql="INSERT INTO `san_pham`( `ten_sp`, `id_dm`, `img`, `gia`) VALUES ('$name_product','$id_dm','$img','$price_product')";
         pdo_query($sql);
     }
     
@@ -27,19 +27,15 @@
         return pdo_query_one($sql);
     }
 
-
-    function Update_Product($id_sp,$name_product,$id_dm, $img, $price_product,$des,$detail,$quantity){
+    function Update_Product($id_sp,$name_product,$id_dm, $img, $price_product){
         if($img !=''){
-             $sql="UPDATE `san_pham` SET `ten_sp`='$name_product',`id_dm`='$id_dm',`img`='$img',`gia`='$price_product', `mo_ta` = '$des',`chi_tiet` ='$detail',`so_luong` = '$quantity' WHERE `id_sp`='$id_sp'";
+             $sql="UPDATE `san_pham` SET `ten_sp`='$name_product',`id_dm`='$id_dm',`img`='$img',`gia`='$price_product' WHERE `id_sp`=".$id_sp;
              pdo_query($sql);
         }else{
-            $sql="UPDATE `san_pham` SET `ten_sp`='$name_product',`id_dm`='$id_dm',`gia`='$price_product', `mo_ta` = '$des',`chi_tiet` ='$detail',`so_luong` = '$quantity'  WHERE `id_sp`=".$id_sp;
+            $sql="UPDATE `san_pham` SET `ten_sp`='$name_product',`id_dm`='$id_dm',`gia`='$price_product' WHERE `id_sp`=".$id_sp;
             pdo_query($sql);
-        } 
-    }
-    function Load_Product_Same_Category($id_dm){
-        $sql="SELECT * FROM `san_pham` WHERE `id_dm` = '$id_dm'";
-        return pdo_query($sql);
+        }
+       
     }
     function Load_Recommned_Product(){
         $sql = "SELECT * FROM `san_pham` ORDER BY ngay_tao DESC LIMIT 3";
@@ -50,11 +46,20 @@
         $sql = "SELECT * FROM `san_pham` ORDER BY ngay_tao DESC LIMIT 8";
         return pdo_query($sql);
     }
-    function  Search_With_Name($key_search){
-        $sql ="SELECT * FROM `san_pham` WHERE `ten_sp` LIKE '%$key_search%'";
-        return pdo_query($sql); 
+    
+    function Load_Product_Same_Category($id_dm){
+        $sql="SELECT * FROM `san_pham` WHERE `id_dm` = '$id_dm'";
+        return pdo_query($sql);
     }
-   
+
+    function Search_With_Name($name_product){
+        $sql ="SELECT * FROM `san_pham` WHERE `ten_sp` LIKE '%$name_product%' ";
+        return pdo_query($sql);
+    }
+    
+
+    
+
 
         /**
  *

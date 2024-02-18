@@ -1,5 +1,5 @@
 
-<form method="POST" action="../Controller/index_admin.php?request=createbrand">
+<form method="POST" action="../../../../Duan1_Project/Controller/index_admin.php?request=createbrand">
     <div class="" role="document">
         <div class="">
             <div class="modal-header">
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="../Controller/index_admin.php?request=list_categories"class="btn btn-secondary" data-dismiss="modal">Return</a>
+                <a href="../../../../Duan1_Project/Controller/index_admin.php?request=list_categories"class="btn btn-secondary" data-dismiss="modal">Return</a>
                 <!-- <input type="submit" value="Add" class="btn btn-primary" name="btn_brand_create"> -->
                 <input type="submit" class="btn btn-primary" name="submit" value="Add">
 

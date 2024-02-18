@@ -20,13 +20,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100 h-50" src="https://img.freepik.com/free-psd/cyber-monday-banner-template_23-2148722783.jpg?w=1060&t=st=1706711703~exp=1706712303~hmac=e25591555f5dcac8a05fc607bc38ac03d47145d06d766de3c4465f93ac8b21c6"style="max-height:450px; width: 100%;"  alt="First slide">
+      <img class="d-block w-100" src="https://img.freepik.com/free-psd/cyber-monday-banner-template_23-2148722783.jpg?w=1060&t=st=1706711703~exp=1706712303~hmac=e25591555f5dcac8a05fc607bc38ac03d47145d06d766de3c4465f93ac8b21c6" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100 h-50" src="https://cdn.tgdd.vn/Files/2018/11/27/1134121/bannerlaptopthang12_800x450.png" style="max-height:450px; width: 100%;" alt="Second slide">
+      <img class="d-block w-100" src="https://cdn.tgdd.vn/Files/2018/11/27/1134121/bannerlaptopthang12_800x450.png" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100 h-50" src="https://nguyencongpc.vn/media/news/1069-274295881_3110865975898620_1417727696820541299_n.jpg" style="max-height:450px; width: 100%;" alt="Third slide">
+      <img class="d-block w-100" src="https://nguyencongpc.vn/media/news/1069-274295881_3110865975898620_1417727696820541299_n.jpg" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -57,16 +57,16 @@
                         <div class="product-img">
                             <img class="img-fluid w-100" src="../img/<?=$img?>" alt="" />
                             <div class="p_icon">
-                                <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
+                                <a href="../../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
                                     <i class="ti-eye" title="Chi tiết sản phẩm"></i>
                                 </a>
-                                <a href="../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_product?>&&price<?=$gia?>">
+                                <a href="../../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_sp?>&&price=<?=$gia?>">
                                     <i class="ti-shopping-cart" title="Thêm vào giỏ hàng"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="product-btm">
-                            <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>" class="d-block">
+                            <a href="../../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>" class="d-block">
                                 <h4 title="Chi tiết sản phẩm"><span class="mr-4"><?=$ten_sp?></span></h4>
                             </a>
                             <div class="mt-3">
@@ -100,16 +100,16 @@
                         <div class="product-img">
                             <img class="img-fluid w-100" src="../img/<?=$img?>" alt="" />
                             <div class="p_icon">
-                                <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
+                                <a href="../../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
                                     <i class="ti-eye" title="Chi tiết sản phẩm"></i>
                                 </a>
-                                <a href="../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_product?>&&price<?=$gia?>">
+                                <a href="../../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_sp?>&&price=<?=$gia?>">
                                     <i class="ti-shopping-cart" title="Thêm vào giỏ hàng"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="product-btm">
-                            <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>" class="d-block">
+                            <a href="../../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>" class="d-block">
                                 <h4><?=$ten_sp?></h4>
                             </a>
                             <div class="mt-3">

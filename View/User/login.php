@@ -10,20 +10,17 @@
     <link rel="icon" type="image/x-icon" href="../images_giao_dien/logo.png">
     <link rel="stylesheet" href="../../css/bootstrap.css">
     
-
 </head>
 
 <body>
     <section class="d-flex">
         <div class="img-bg">
-            <img src="https://media.istockphoto.com/id/1305665241/vi/vec-to/h%C3%ACnh-%C4%91%E1%BA%A1i-di%E1%BB%87n-khu%C3%B4n-m%E1%BA%B7t-trung-l%E1%BA%ADp-gi%E1%BB%9Bi-t%C3%ADnh-%E1%BA%A9n-danh-h%C3%ACnh-b%C3%B3ng-%C4%91%E1%BA%A7u-%E1%BA%A9n-danh-minh-h%E1%BB%8Da-ch%E1%BB%A9ng.jpg?s=612x612&w=0&k=20&c=7U_5zwzYaPbCSI6NmLIKhKv2YguMjF4zU32LfBd5QZg=" alt="Hình Ảnh Minh Họa">
+            <img src="../../images_giao_dien/sign.jpg" alt="Hình Ảnh Minh Họa">
         </div>
-       
         <div class="noi-dung">
-        <!-- <button class="exit w-100px h-50px ">Thoát</button> -->
             <div class="form">
                 <h2>Trang Đăng Nhập</h2>
-                <form action="../../Controller/index_user.php?request=login-user" method="POST">
+                <form action="../../../../Duan1_Project/Controller/index_user.php?request=login-user" method="POST">
                     <div class="input-form">
                         <span>Số Điện Thoại</span>
                         <input type="text" name="phone">
@@ -39,7 +36,7 @@
                         <input type="submit" value="Đăng Nhập" name="login">
                     </div>
                     <div class="input-form">
-                        <p>Bạn Chưa Có Tài Khoản? <a href="../../../Duan1_Project/View/User/register.php">Đăng Ký</a></p>
+                        <p>Bạn Chưa Có Tài Khoản? <a href="../../../../Duan1_Project/View/User/register.php">Đăng Ký</a></p>
                     </div>
                     <div class="input-form">
                         <a style="cursor: pointer;" data-toggle="modal" data-target="#quen-mat-khau">Quên mật khẩu</a>
@@ -51,7 +48,7 @@
     </section>
     <!--MODAL Quên mật khẩu BOOTSTRAP-->
     <div class="modal fade" id="quen-mat-khau" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <form method="POST" action="index.php?action=fgpass">
+        <form method="POST" action="../../../../Duan1_Project/Controller/index_user.php?request=forgot_pass">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -75,10 +72,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <span><?=isset($mes)&& !empty($mes)?$mes:''?></span>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                         <!-- <input type="submit" value="Add" class="btn btn-primary" name="btn_brand_create"> -->
-                        <button type="submit" class="btn btn-primary" name="btn_forgot_pass">Update</button>
+                        <input type="submit" class="btn btn-primary" name="btn_forgot_pass" value="Cập nhật">
                     </div>
                 </div>
             </div>

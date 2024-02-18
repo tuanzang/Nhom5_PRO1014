@@ -22,6 +22,6 @@ function Add_Brand_Name($name){
 
     function Delete_Category($id_dm){
         $sql ="DELETE FROM `danh_muc` WHERE `id_dm` = ".$id_dm;
-        pdo_query($sql);
+        pdo_query_one($sql);
     }
 ?>

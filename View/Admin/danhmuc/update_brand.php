@@ -1,5 +1,5 @@
 
-<form method="POST" action="../Controller/index_admin.php?request=update-brand">
+<form method="POST" action="../../../../Duan1_Project/Controller/index_admin.php?request=update-brand">
     <div class="" role="document">
         <div class="">
             <div class="modal-header">

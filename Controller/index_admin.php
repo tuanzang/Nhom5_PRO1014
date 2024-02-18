@@ -1,4 +1,5 @@
 <?php 
+    ob_start();
     session_start();
     include '../View/Admin/header.php';
     include '../View/Admin/sidebar.php';
@@ -6,10 +7,13 @@
     include '../Model/pdo.php';
     include '../Model/action_danhmuc.php';
     include '../Model/action_product.php';
+    include '../Model/action_user.php';
     include '../View/Admin/sweetalert.php';
+    include '../Model/action_cart.php';
 
     $list_data_categories = Load_All_Data_Categories();
     $list_data_product = Load_All_Data_Products();
+    $list_data_user = Load_All_Users();
 
     if(isset($_GET['request']) && $_GET['request']){
         switch($_GET['request']){
@@ -39,6 +43,7 @@
                 $list_data_categories = Load_All_Data_Categories();
                 include '../View/Admin/danhmuc/list.php';
                 break;
+
             case 'deleteBrand':
                 if(isset($_GET['id']) && $_GET['id']){
                     $id_dm = $_GET['id'];
@@ -67,12 +72,10 @@
                     $name_product = $_POST['pro_name'];
                     $price_product = $_POST['price'];
                     $file_name = $_FILES['img']['name'];
-                    $des = $_POST['des'];
-                    $detail = $_POST['detail'];
-                    $quantity = $_POST['quantity'];
+                    $description = $_POST['des'];
                    
                     Upload_Images($file_name);
-                    Add_Data_Product($name_product,$id_dm,$file_name,$price_product,$des,$detail,$quantity);
+                    Add_Data_Product($name_product,$id_dm,$file_name,$price_product);
                 }
                 $list_data_categories = Load_All_Data_Categories();
                 include '../View/Admin/sanpham/add_sp.php';
@@ -104,20 +107,106 @@
                     $name_product = $_POST['pro_name'];
                     $price_product = $_POST['price'];
                     $file_name = $_FILES['img']['name'];
-                    $des = $_POST['des'];
-                    $detail = $_POST['detail'];
-                    $quantity = $_POST['quantity'];
-
                     Upload_Images($file_name);
-                    Update_Product($id_product, $name_product,$id_dm, $file_name,$price_product,$des,$detail,$quantity);
+                    Update_Product($id_product, $name_product,$id_dm, $file_name,$price_product);
                 }
                 $list_data_product = Load_All_Data_Products();
                 include '../View/Admin/sanpham/list_sp.php';
                 break;
+            
+            case 'list-user':
+                include '../View/Admin/user/list.php';
+                break;
+            
+            case 'add-user':
+                if(isset($_POST['btn_add_user']) && $_POST['btn_add_user']){
+                    $regrex = '/^(?=.*[!@#$%^&*()-_=+{}\[\]:;<>,.?\/`])[\w!@#$%^&*()-_=+{}\[\]:;<>,.?\/`]{6,}$/';
+                    $pattern_email = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+                    $pattern_phone = '/^0[0-9]{10}$/';
+                    $user_name = $_POST['user_name'];
+                    $password= $_POST['password'];
+                    $email = $_POST['email'];
+                    $phone = $_POST['phone'];
+                    $role = $_POST['role'];
+                    $account_exist = Check_Account_Exist($phone);
+                    if(!is_array($account_exist)){
+                        if(preg_match($regrex, $password) === 1 && preg_match($pattern_email, $email) === 1 && preg_match($pattern_phone,$phone) === 1){
+                            Create_Admin($user_name,$password,$email,$phone,$role);
+                            echo '<script>alert("Tạo thành công!");</script>';
+                        }else{
+                            if (preg_match($regrex, $password) === 0) {
+                                echo '<script>alert("Mật khẩu ít nhất 6 kí tự, bao gồm kí tự đặc biệt!")</script>';
+                            } else if (preg_match($pattern_email, $email) === 0) {
+                                echo '<script>alert("Email chưa đúng định dạng!");</script>';
+                            } else if (preg_match($pattern_phone, $phone) === 0) {
+                                echo '<script>alert("Số điện thoại chưa đúng định dạng!");</script>';
+                            }
+                        }
+                    }else{
+                        echo '<script>alert("Tài khoản đã tồn tại!");</script>';
+                    }  
+                }
+               include '../View/Admin/user/add_user.php';
+               break;
+
+
+            case 'delete-user':
+                if(isset($_GET['id_user']) && $_GET['id_user']){
+                    $id_user = $_GET['id_user'];
+                    Delete_User($id_user);
+                    echo '<script>alert("Xóa thành công !");</script>';
+                }
+                $list_data_user = Load_All_Users();
+                include '../View/Admin/user/list.php';
+                break;
+
+            case 'edit-user':
+                if(isset($_GET['id_user']) && $_GET['id_user']){
+                    $id_user = $_GET['id_user'];
+                    $list_one_data_user =  Load_One_Data_User($id_user);
+                }
+                include '../View/Admin/user/update_user.php';
+                break;
+
+            case 'update-user':
+                if(isset($_POST['btn_update_user']) && $_POST['btn_update_user']){
+                    $id_user =$_POST['id_user'];
+                    $user_name = $_POST['user_name'];
+                    $password= $_POST['password'];
+                    $email = $_POST['email'];
+                    $phone = $_POST['phone'];
+                    $role = $_POST['role'];
+                    //Regrex expression: Biểu thức chính quy dùng để định dạng
+                    $regrex = '/^(?=.*[!@#$%^&*()-_=+{}\[\]:;<>,.?\/`])[\w!@#$%^&*()-_=+{}\[\]:;<>,.?\/`]{6,}$/';
+                    $pattern_email = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+                    $pattern_phone = '/^0[0-9]{10}$/';
+                    //preg_match: Kiểm tra xem dữ liệu nhâp vào có khớp với biểu thức chính quy không
+                    if(preg_match($regrex, $password) === 1 && preg_match($pattern_email, $email) === 1 && preg_match($pattern_phone,$phone) === 1){
+                         Update_Account_User($id_user,$user_name,$password,$email,$phone,$role);
+                         echo '<script>alert("Cập nhật thành công !");</script>';
+                          $list_data_user = Load_All_Users();
+                          include '../View/Admin/user/list.php';
+                          break;
+                    } else{
+                        if (preg_match($regrex, $password) === 0) {
+                            echo '<script>alert("Mật khẩu ít nhất 6 kí tự, bao gồm kí tự đặc biệt!");</script>';
+                        } else if (preg_match($pattern_email, $email) === 0) {
+                            echo '<script>alert("Email chưa đúng định dạng!");</script>';
+                        } else if (preg_match($pattern_phone, $phone) === 0) {
+                            echo '<script>alert("Số điện thoại chưa đúng định dạng!");</script>';
+                        }
+                    }  
+                }
+                $list_one_data_user =  Load_One_Data_User($id_user);
+                include '../View/Admin/user/update_user.php';
+                break;
+            
+
 
         }
     }else {
         include '../View/Admin/danhmuc/list.php';
     }
      include '../View/Admin/footer.php';
+     ob_end_flush();
 ?>

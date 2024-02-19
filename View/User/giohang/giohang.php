@@ -46,7 +46,7 @@
                                 <td>
                                     <div class="media">
                                         <div class="d-flex">
-                                            <a href="../../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>"><img src="../../../../Duan1_Project/img/<?$img ?>" alt="" style="width: 100px;" /></a>
+                                            <a href="../../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>"><img src="../../../../Duan1_Project/img/<?=$img?>" alt="" style="width: 100px;" /></a>
                                         </div>
                                         <div class="media-body">
                                             <p><?= $ten_sp ?></p>

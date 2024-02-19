@@ -12,8 +12,8 @@
         return pdo_query_one($sql);
     }
 
-    function Check_Account_Exist($phone_number){
-        $sql ="SELECT * FROM `khach_hang` WHERE `sdt` = '$phone_number'";
+    function Check_Account_Exist($phone_number,$email){
+        $sql ="SELECT * FROM `khach_hang` WHERE `sdt` = '$phone_number' OR `gmail` = '$email'";
         return pdo_query_one($sql);
     }
     function Update_Pass_User($user_name, $pass){

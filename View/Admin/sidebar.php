@@ -19,7 +19,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="../../../../Duan1_Project/Controller/index_admin.php?request=manage-bill">
                     <i class='bx bxs-shopping-bag-alt'></i>
                     <span class="text">Quản Lý Đơn Hàng</span>
                 </a>

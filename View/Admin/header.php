@@ -1,3 +1,11 @@
+<?php
+if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) {
+    echo '<script>alert("' . $_SESSION['success_message'] . '");</script>';
+    // Xoá biến session sau khi hiển thị thông báo
+    unset($_SESSION['success_message']);
+}
+?>
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 

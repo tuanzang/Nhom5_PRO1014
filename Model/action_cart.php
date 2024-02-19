@@ -1,6 +1,11 @@
 <?php 
-    function Add_Cart($id_product,$id_user,$price){
-        $sql = "INSERT INTO `gio_hang`( `id_sp`, `id_kh`, `gia` ) VALUES ('$id_product','$id_user','$price')";
+    function Add_Cart($id_product,$id_user,$price,$so_luong){
+        $sql = "INSERT INTO `gio_hang`( `id_sp`, `id_kh`, `gia`,`so_luong` ) VALUES ('$id_product','$id_user','$price','$so_luong')";
+        pdo_execute($sql);
+    }
+
+    function Add_Cart_Btn($id_product,$id_user,$price,$quantity){
+        $sql = "INSERT INTO `gio_hang`( `id_sp`, `id_kh`, `gia`, `so_luong` ) VALUES ('$id_product','$id_user','$price', '$quantity')";
         pdo_execute($sql);
     }
     function Load_All_Cart($id_user){
@@ -18,12 +23,12 @@
         return pdo_query_one($sql);
     }
     function Update_Quantity_Product($id_product,$quantity){
-        $sql = "UPDATE `gio_hang` SET `so_luong`='$quantity' WHERE `id_sp` = '$id_product'";
+        $sql = "UPDATE `gio_hang` SET `so_luong`='$quantity' WHERE `id_sp` = '$id_product' ";
         pdo_query($sql);
     }
 
-    function Check_Exist_Product($id_product){
-        $sql ="SELECT * FROM `gio_hang` WHERE `id_sp` = '$id_product'";
+    function Check_Exist_Product($id_product,$id_user){
+        $sql ="SELECT * FROM `gio_hang` WHERE `id_sp` = '$id_product' AND `id_kh` = '$id_user' ";
         return pdo_query_one($sql);
     }
 

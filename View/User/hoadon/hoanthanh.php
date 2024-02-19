@@ -53,7 +53,7 @@
                                         echo '
                                             <div class="row mt-4 border-bottom">
                                                 <div class="col-2">
-                                                    <img src="../../../../Duan1_Project/img/'.$img.'" style ="width: 120px" alt="">
+                                                <a href="../../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product='.$id_sp.'"><img src="../../../../Duan1_Project/img/'.$img.'" alt="" style="width: 100px;" /></a>
                                                 </div>
                                                 <div class="col-8">
                                                     <div><span style="font-size: 15px">'.$ten_sp.'</span></div>

@@ -45,7 +45,7 @@
                     <form action="../../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_sp?>&&price=<?=$gia?>" method="POST">
                         <div class="product_count">
                             <label for="qty">Quantity:</label>
-                            <input type="number" name="quantity" id="sst" max="3" value="1" min="1" title="Quantity:" class="input-text qty" />
+                            <input type="number" name="quantity" id="sst" min="1" title="Quantity:" class="input-text qty" />
                         </div>
                         <div class="card_area">
 

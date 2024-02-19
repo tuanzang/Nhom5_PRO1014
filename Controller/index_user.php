@@ -29,7 +29,7 @@
                     $email = $_POST['email'];
                     $pass1 = $_POST['pass1'];
                     $pass2 = $_POST['pass2'];
-                    $account_exist = Check_Account_Exist($phone_number);
+                    $account_exist = Check_Account_Exist($phone_number,$email);
                     if (!is_array($account_exist)) {
                         if ($pass1 === $pass2) {
                             if (preg_match($regrex, $pass2) === 1 && preg_match($pattern_email, $email) === 1 && preg_match($pattern_phone, $phone_number) === 1) {
@@ -143,27 +143,30 @@
                 if(isset($_SESSION['user'])){
                     if(isset($_GET['id_product']) && $_GET['id_product']){
                         $id_product = $_GET['id_product'];
+                        $so_luong = 1;
                         $id_user = $_SESSION['user']['id_kh'];
                         $price = $_GET['price'];
-                        $check_exist_product = Check_Exist_Product($id_product);
+                        $check_exist_product = Check_Exist_Product($id_product,$id_user);
                         if(!empty($check_exist_product)){
                             $quantity = Quantity_Product($id_product)['so_luong'];
                             $quantity++;
                             Update_Quantity_Product($id_product,$quantity);
                         } else{
-                            Add_Cart($id_product,$id_user,$price);
+                            Add_Cart($id_product,$id_user,$price,$so_luong); 
                         }  
                     } else if(isset($_POST['add_to_cart']) && $_POST['add_to_cart']) {
                             $id_product = $_POST['id_product'];
-                            $quantity = $_POST['quantity'];
+                            $id_user = $_SESSION['user']['id_kh'];
+                            $so_luong = $_POST['quantity'];
+                            $quantity = (int)$quantity;
                             $price = $_POST['price'];
-                            $check_exist_product = Check_Exist_Product($id_product);
+                            $check_exist_product = Check_Exist_Product($id_product,$id_user);
                             if(!empty($check_exist_product)){
                                 $quantity = Quantity_Product($id_product)['so_luong'];
-                                $quantity++;
+                                $quantity+=$so_luong;
                                 Update_Quantity_Product($id_product,$quantity);
                             } else{
-                                Add_Cart($id_product,$id_user,$price);
+                                Add_Cart_Btn($id_product,$id_user,$price,$quantity);
                             }  
                     }    
                     $list_cart = Load_All_Cart($id_user);
@@ -351,7 +354,7 @@
                     Cancel_Bill($id_bill);
                     $_SESSION['success_message'] = 'Hủy thành công!!';
                 }
-                header('Location:../../../../Duan1_Project/Controller/index_user.php?request=history-bill');
+                header('Location:../../../../Duan1_Project/Controller/index_user.php?request=cancel');
                 break;
 
             //Đơn hàng đã hủy status = 3

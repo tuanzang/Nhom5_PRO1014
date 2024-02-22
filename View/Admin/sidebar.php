@@ -2,7 +2,7 @@
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="#" class="brand">
-            <img id="logo" src="../../../Duan1_Project/img/anh.jpg" alt="">
+        <img src="https://laptop360.net/wp-content/uploads/2019/04/logo-home-laptop-360.png" style="height: 90px; width: 90px;" alt="" />
             <span class="text">Admin</span>
         </a>
         <ul class="side-menu top">
@@ -31,13 +31,13 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="../../../../Duan1_Project/Controller/index_admin.php?request=manage-comment">
                     <i class='bx bxs-message-dots'></i>
                     <span class="text">Quản Lý Bình Luận</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="../../../../Duan1_Project/Controller/index_admin.php?request=chart">
                     <i class='bx bxs-doughnut-chart'></i>
                     <span class="text">Thống Kê</span>
                 </a>

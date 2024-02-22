@@ -40,16 +40,16 @@
                         </li>
                     </ul>
                     <p>
-                        <?=$mo_ta?>
+                        <?= $mo_ta ?>
                     </p>
-                    <form action="../../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_sp?>&&price=<?=$gia?>" method="POST">
+                    <form action="../../../../Duan1_Project/Controller/index_user.php?request=add-cart" method="POST">
                         <div class="product_count">
                             <label for="qty">Quantity:</label>
-                            <input type="number" name="quantity" id="sst" min="1" title="Quantity:" class="input-text qty" />
+                            <input type="number" name="quantity" id="sst"  value="1" min="1" title="Quantity:" class="input-text qty" />
                         </div>
                         <div class="card_area">
-
-                            <input type="hidden" value="<?= $id_sp ?>" name="product_id">
+                            <input type="hidden" value="<?= $id_sp ?>" name="id_product">
+                            <input type="hidden" value="<?= $gia ?>" name="price">
                             <input type="submit" class="main_btn" value="Thêm vào giỏ hàng" name="add_to_cart">
                         </div>
                     </form>
@@ -61,87 +61,109 @@
 
 <div class="product-info-tabs container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Sự mô tả</a>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active " id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Mô tả</button>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Nhận xét</a>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#comment" type="button" role="tab" aria-controls="profile" aria-selected="false">Bình luận</button>
         </li>
+    
     </ul>
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-            <?=$chi_tiet?>
 
-        </div>
-        <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-            <div class="review-heading">ĐÁNH GIÁ</div>
-            <div class="mb-20">
-               
-                    <div class=" mb-2 " style="display:inline-block; padding: 5px 10px; border-radius: 10px; width: auto; background-color:#f6f6f6;">
-                        <h6 class="card-title"></h6>
-                        <p class="card-text ps-3"><?= $note ?></p>
-                    </div><br>
-                <?php
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><?=$chi_tiet?>
+            </div>
+            <div class="tab-pane fade" id="comment" role="tabpanel" aria-labelledby="contact-tab">
+
+
+            <?php if(!empty($list_comment)){
+                        foreach($list_comment as $value){
+                            extract($value);
+                     ?>
+                    <div class="card mb-3 comment-container border-0 rounded">
+                    <div class="card-header row border-0">
+                            <div class="card-title col-9 text-primary mb-1">
+                                <i class="fa-solid fa-circle-user mr-1"></i><?=$ho_ten?>
+                            </div>
+                            <div class="card-subtitle text-muted col-3"><?=$ngay_tao?></div>
+                            <div class="star row mt-0 mb-1">
+                                <div class="col-3 ">
+                                  <i class="fas fa-star" style="color:gold"></i>
+                                  <i class="fas fa-star" style="color:gold"></i>
+                                  <i class="fas fa-star" style="color:gold"></i>
+                                  <i class="fas fa-star" style="color:gold"></i>
+                                  <i class="fas fa-star" style="color:gold"></i>
+                                </div>
+                                <div class="col-9"></div>
+                            </div>
+                            <div class=" border-0 mt-0">
+                            <p class="card-text" style="font-size:16px"><?=$noi_dung?></p>
+                        </div>
+                        </div>
+                    </div>
+                    <?php } }  ?>    
                     
-                ?>
+                    <?php  if(isset($_SESSION['user'])){
+                        echo '
+                                <form action="../../../../Duan1_Project/Controller/index_user.php?request=add-comment" method="post" class="mt-3">
+                                <div class="mb-4">
+                                    <span >Đánh giá</span>
+                                    <div class="star row mt-0 mb-3">
+                                        <div class="col-3 ">
+                                        <i class="fas fa-star" style="color:gold"></i>
+                                        <i class="fas fa-star" style="color:gold"></i>
+                                        <i class="fas fa-star" style="color:gold"></i>
+                                        <i class="fas fa-star" style="color:gold"></i>
+                                        <i class="fas fa-star" style="color:gold"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" name="id_product" value="'.$id_sp.'">
+                                    <input type="text" name="comment" class="form-control py-5" id="comment" required>
+                                </div>
+                                <input type="submit" name="comment-btn" style="width: auto; padding: 5px 10px;" class="btn btn-primary " value="Bình luận">
+                        </form>
+                        
+                        ';
+                    }?>
+                    
+                
+                    
+                    
+
             </div>
-            <form class="review-form" action="index.php?action=comment" method="POST">
-                <div class="form-group">
-                    <label>Đánh giá của bạn</label>
-                    <div class="reviews-counter">
-                        <div class="rate">
-                            <input type="radio" id="star5" name="rate" value="5" />
-                            <label for="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="rate" value="4" />
-                            <label for="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="rate" value="3" />
-                            <label for="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="rate" value="2" />
-                            <label for="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="rate" value="1" />
-                            <label for="star1" title="text">1 star</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="hidden" name="id_product" value="">
-
-                    <label>Tin nhắn của bạn</label>
-
-                    <input name="note" type="text" class="form-control">
-                </div>
-
-                <button type="submit" name="btn_gui" class="round-black-btn">Gửi đánh giá</button>
-            </form>
         </div>
     </div>
-    <div class="row ">
-           <h2 style="margin-bottom: 15px">Sản phẩm cùng hãng</h2>
-            <?php foreach($list_same_category as $value) : extract($value); ?>
-            <div class="col-lg-3 col-md-6">
-                <div class="single-product">
-                    <div class="product-img">
-                        <img class="img-fluid w-100" src="../../../../Duan1_Project/img/<?=$img?>" alt="" />
-                        <div class="p_icon">
-                            <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>">
-                                <i class="ti-eye" title="Chi tiết sản phẩm"></i>
-                            </a>
-                            <a href="index.php?action=addgiohang&id_pro=">
-                                <i class="ti-shopping-cart" title="Thêm vào giỏ hàng"></i>
-                            </a>
+
+        <div class="row">
+            <h2 style="margin-bottom: 15px">Sản phẩm cùng hãng</h2>
+            <?php foreach ($list_same_category as $value) : extract($value); ?>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <img class="img-fluid w-100" src="../../../../Duan1_Project/img/<?= $img ?>" alt="" />
+                            <div class="p_icon">
+                                <a href="../../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?= $id_sp ?>">
+                                    <i class="ti-eye" title="Chi tiết sản phẩm"></i>
+                                </a>
+                                <a href="../../../../Duan1_Project/Controller/index_user.php?request=add-cart&id_product=<?=$id_sp?>&price=<?=$gia?>">
+                                    <i class="ti-shopping-cart" title="Thêm vào giỏ hàng"></i>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="product-btm">
-                        <a href="../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?=$id_sp?>" class="d-block">
-                            <h4><?=$ten_sp?></h4>
-                        </a>
-                        <div class="mt-3">
-                            <span class="mr-4"> <?php echo currency_format($gia, ' VND'); ?></span>
-                            <del>20.000.000 VND</del>
+                        <div class="product-btm">
+                            <a href="../../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product=<?= $id_sp ?>" class="d-block">
+                                <h4><?= $ten_sp ?></h4>
+                            </a>
+                            <div class="mt-3">
+                                <span class="mr-4"><?php echo currency_format($gia, ' VND'); ?></span>
+                                <del>20.000.000 VND</del>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-       <?php endforeach ?>
-    </div>
+            <?php endforeach ?>
+        </div>
+    
 </div>

@@ -62,4 +62,12 @@
             pdo_query_one($sql);
         }
 
+        function Load_Detail_Bill_Address($id_bill){
+            $sql ="SELECT hd.id_hoa_don, hd.tong_gia ,dc.ten_nguoi_nhan,dc.dia_chi_nguoi_nhan FROM hoa_don hd JOIN  dia_chi dc ON dc.id_dia_chi = hd.id_dia_chi WHERE hd.id_hoa_don = '$id_bill'";
+            return pdo_query($sql);
+        }
+
+    
+
+
 ?>

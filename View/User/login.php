@@ -41,6 +41,9 @@
                     <div class="input-form">
                         <a style="cursor: pointer;" data-toggle="modal" data-target="#quen-mat-khau">Quên mật khẩu</a>
                     </div>
+                    <div class="input-form">
+                        <p><a href="../../../../Duan1_Project/Controller/index_user.php">Thoát</a></p>
+                    </div>
                 </form>
 
             </div>
@@ -57,6 +60,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                   
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Tên đăng nhập</label>

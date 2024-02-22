@@ -56,6 +56,10 @@
         $sql ="SELECT * FROM `san_pham` WHERE `ten_sp` LIKE '%$name_product%' ";
         return pdo_query($sql);
     }
+    function Name_Product ($id_product){
+        $sql ="SELECT `ten_sp` FROM `san_pham` WHERE `id_sp` = '$id_product'";
+        return pdo_query_one($sql);
+    }
     
 
     

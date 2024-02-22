@@ -1,16 +1,18 @@
 <?php 
     ob_start();
     session_start();
-    include '../View/Admin/header.php';
-    include '../View/Admin/sidebar.php';
-    include '../View/Admin/nav.php';
-    include '../Model/pdo.php';
-    include '../Model/action_danhmuc.php';
-    include '../Model/action_product.php';
-    include '../Model/action_user.php';
-    include '../View/Admin/sweetalert.php';
-    include '../Model/action_cart.php';
-    include '../Model/action_bill.php';
+    include_once '../View/Admin/header.php';
+    include_once '../View/Admin/sidebar.php';
+    include_once '../View/Admin/nav.php';
+    include_once '../Model/pdo.php';
+    include_once '../Model/action_danhmuc.php';
+    include_once '../Model/action_product.php';
+    include_once '../Model/action_user.php';
+    include_once '../View/Admin/sweetalert.php';
+    include_once '../Model/action_cart.php';
+    include_once '../Model/action_bill.php';
+    include_once '../Model/action_comment.php';
+    include_once '../Model/action_chart.php';
 
     $list_data_categories = Load_All_Data_Categories();
     $list_data_product = Load_All_Data_Products();
@@ -129,7 +131,7 @@
                     $email = $_POST['email'];
                     $phone = $_POST['phone'];
                     $role = $_POST['role'];
-                    $account_exist = Check_Account_Exist($phone);
+                    $account_exist = Check_Account_Exist($phone,$email);
                     if(!is_array($account_exist)){
                         if(preg_match($regrex, $password) === 1 && preg_match($pattern_email, $email) === 1 && preg_match($pattern_phone,$phone) === 1){
                             Create_Admin($user_name,$password,$email,$phone,$role);
@@ -206,6 +208,15 @@
                     $list_wait_confirm = Load_All_Bill();
                     include '../View/Admin/donhang/all_bill.php';
                     break;
+
+                case 'detail-bill':
+                        if(isset($_GET['id_bill']) && $_GET['id_bill']){
+                            $id_bill = $_GET['id_bill'];
+                            $list_detail_bill_address = Load_Detail_Bill_Address($id_bill);
+                            $list_detail_bill_product =  Load_Detail_Bill_Transport($id_bill);
+                        }
+                        include '../View/Admin/donhang/detail_bill.php';
+                        break;
     
                 case 'edit-bill':
                     if(isset($_GET['id_bill']) && $_GET['id_bill']){
@@ -224,6 +235,75 @@
                         header('Location: ../../../../Duan1_Project/Controller/index_admin.php?request=manage-bill');
                     }
                     break;
+                    case 'manage-comment':
+                        $list_data_manage_comment = Manage_Comment();
+                        include '../View/Admin/binhluan/list.php';
+                        break;
+    
+                    case 'detail_comment':
+                        if(isset($_GET['id_product']) && $_GET['id_product']){
+                            $id_product = $_GET['id_product'];
+                            $ten_sp = Name_Product ($id_product)['ten_sp'];
+                            $list_detail_comment = Detail_Comment($id_product);
+                        }
+                        include '../View/Admin/binhluan/detail.php';
+                        break;
+        
+                    case 'delete-comment':
+                        if(isset($_GET['id_bl']) && $_GET['id_bl']){
+                            Delete_Comment($_GET['id_bl']);
+                            $_SESSION['success_message'] = 'Xóa thành công!!';
+                              echo '<script>window.history.back();</script>';
+                            exit();
+                        }
+                        break;
+                        case 'chart':
+                            $doanh_thu = Doanh_Thu();
+                            $so_luong_nguoi_dung = So_Luong_Nguoi_Dung()[0]['so_luong_kh'];
+                            $so_luong_san_pham = So_Luong_San_Pham()[0]['so_luong_sp'];
+                            $so_luong_don_hang_hoan_thanh = So_Luong_Don_Hang_Hoan_Thanh()[0]['so_luong_hd'];
+                            $so_luong_don_hang_huy = So_Luong_Don_Hang_Huy()[0]['so_luong_hd'];
+                            $so_luong_bl = So_Luong_Binh_Luan()[0]['so_luong_bl'];
+                            $top_5_kh = Top_5_User();
+        
+                            $doanh_thu_theo_ngay = [];
+                            $tong_doanh_thu_theo_ngay = [];
+        
+                            $doanh_thu_theo_tuan = [];
+                            $tong_doanh_thu_theo_tuan = [];
+        
+                            $doanh_thu_theo_thang = [];
+                            $tong_doanh_thu_theo_thang = [];
+        
+                            $ten_danh_muc = [];
+                            $so_luong_san_pham_danh_muc = [];
+        
+                            foreach(Doanh_Thu_Theo_Ngay() as $value){
+                                $tong_doanh_thu_theo_ngay[] = $value['doanh_thu'];
+                                $doanh_thu_theo_ngay[] = $value['ngay_tao'];
+                            }
+        
+                            foreach(Doanh_Thu_Theo_Tuan() as $value){
+                                $doanh_thu_theo_tuan[] = $value['tuan'];
+                                $tong_doanh_thu_theo_tuan[] = $value['doanh_thu'];
+                            }
+        
+                            foreach(Doanh_Thu_Theo_Thang() as $value){
+                                $doanh_thu_theo_thang[] = $value['thang'];
+                                $tong_doanh_thu_theo_thang[] = $value['doanh_thu'];
+                            }
+        
+                            foreach(Bieu_Do_Danh_Muc() as $value){
+                                $ten_danh_muc[] = $value['ten_dm'];
+                                $so_luong_san_pham_danh_muc[] = $value['so_luong_san_pham'];
+                            }
+                            $top_3_sp_ban_chay = Top_3_San_Pham_Ban_Chay();
+        
+        
+                             
+        
+                            include '../View/Admin/bieudo/bieudo.php';
+    
     
     
             

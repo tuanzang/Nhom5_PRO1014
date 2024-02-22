@@ -51,7 +51,7 @@
 
                     <div class="wrap-btn">
                         <input type="submit" name="btn_update" class="btn btn-success mt-3" value="Cập nhật">
-                        <input type="reset" class="btn btn-danger mt-3" value="Nhập lại">
+                        <a href="../../../../Duan1_Project/Controller/index_admin.php?request=manage-bill" class="btn btn-danger mt-3">Quay lại</a>
                     </div>
                 </form>
             </div>

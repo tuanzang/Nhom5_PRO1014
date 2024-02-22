@@ -26,12 +26,13 @@
                 <thead>
                     <tr>
                         <th>Id đơn hàng</th>
-                        <th>Người đặt hàng</th>
+                        <th>Người đặt hàng</th> 
                         <th>Số điện thoại</th>
                         <th>Thành tiền</th>
                         <th>Thời Gian</th>
                         <th>Phương thức Thanh Toán</th>
                         <th>Trạng Thái Đơn hàng</th>
+                        <th>Chi tiết</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
@@ -81,10 +82,14 @@
                                        
                                     </td>
                                     <td>
+                                        <a href=".../../../../Duan1_Project/Controller/index_admin.php?request=detail-bill&id_bill=<?=$id_hoa_don?>" class="btn btn-primary status pending">Chi tiết</a>
+                                    </td>
+                                    <td>
                                         <?php if($trang_thai !== 3 && $trang_thai !== 1 && $trang_thai !== 2){
                                             echo '<a href=".../../../../Duan1_Project/Controller/index_admin.php?request=edit-bill&id_bill='.$id_hoa_don.'" class="badge badge-pill badge-info">Sửa</a>';
                                         }?>
                                     </td>
+                                    
                                 </tr>
                         <?php }
                         } ?>

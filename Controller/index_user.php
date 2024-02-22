@@ -9,6 +9,7 @@
     include_once '../Model/action_cart.php';
     include_once '../Model/action_address.php';
     include_once '../Model/action_bill.php';
+    include_once '../Model/action_comment.php';
 
     $list_brand = Load_All_Data_Categories();
     $list_three_data_product = Load_Recommned_Product();
@@ -67,24 +68,7 @@
                 }
                 break;
         //Quên mật khẩu
-            case 'forgot_pass':
-                if(isset($_POST['btn_forgot_pass']) && $_POST['btn_forgot_pass']){
-                    $user_name = $_POST['user_name'];
-                    $pass1 = $_POST['pass1'];
-                    $pass2 = $_POST['pass2'];
-                    $data_user = Check_Account_Exist($user_name);
-                    if(is_array($data_user)){
-                        if($pass1 === $pass2){
-                            Update_Pass_User($user_name,$pass1);
-                            echo '<script>alert("Cập nhật thành công. Vui lòng đăng nhập lại");window.location="../../../../Duan1_Project/View/User/login.php";</script>';
-                        }else{
-                            echo '<script>alert("Mật khẩu không khớp!");window.location="../../../../Duan1_Project/View/User/login.php";</script>';
-                        }
-                    }else{
-                        echo '<script>alert("Tài khoản không tồn tại");window.location="../../../../Duan1_Project/View/User/login.php";</script>';
-                    }
-                }
-                break;
+           
 
             //Đăng xuất
             case 'log-out':
@@ -100,13 +84,14 @@
                     $list_one_data_product = Load_One_Data_Product($id_sp);
                     if (is_array( $list_one_data_product)) {
                         extract( $list_one_data_product);
+            
                     }
+                    $list_comment =  Load_Comment($id_sp);
                     $list_same_category = Load_Product_Same_Category($id_dm);
 
                 }
                 include '../View/User/sanpham/sanphamct.php';
                 break;
-
             //Danh sách tất cả sản phẩm
 
             case 'list-product':
@@ -240,8 +225,12 @@
                     $phone_receiver = $_POST['phone_receiver'];
                     $address_receiver = $_POST['address_receiver'];
                     $list_address_user = Load_All_Address($_SESSION['user']['id_kh']);
-                    Add_Address_User($_SESSION['user']['id_kh'],$name_receiver,$phone_receiver,$address_receiver,$list_address_user);
-                    $_SESSION['success_message'] = 'Thêm thành công!!';
+                    if (!empty($_POST['name_receiver']) && !empty($_POST['phone_receiver']) && !empty($_POST['address_receiver'])) {
+                         Add_Address_User($_SESSION['user']['id_kh'],$name_receiver,$phone_receiver,$address_receiver,$list_address_user);
+                        $_SESSION['success_message'] = 'Thêm thành công!!';
+                    }else {
+                        $_SESSION['success_message'] = 'Khong duoc bo trong';
+                    }
                 }
                  
                  $list_data_checked = Load_Data_Checked($_SESSION['user']['id_kh']);
@@ -362,6 +351,17 @@
                 $list_cancel_bill = Load_Cancel_Bill($_SESSION['user']['id_kh']);
                 include '../View/User/hoadon/dahuy.php';
                 break;
+
+                case 'add-comment':
+                    if(isset($_POST['comment-btn']) && $_POST['comment-btn']){
+                        $comment = $_POST['comment'];
+                        $id_kh = $_SESSION['user']['id_kh'];
+                        $id_product = $_POST['id_product'];
+                        Add_Comment($id_kh,$id_product,$comment);
+                    }
+                    header('Location: ../../../../Duan1_Project/Controller/index_user.php?request=detail-product&id_product='.$id_product.'');
+                    break;
+
             
             //Trang chủ
             case 'home':
